@@ -3,7 +3,7 @@
     <div id="nav">
       <div id="nav-container">
         <div class="logo-container">
-          <img :src="require('@/assets/img/Molnav Logo 1.png')" />
+          <img :src="require('./assets/img/Molnav Logo 1.png')" />
         </div>
         <!-- <div class="phone-number">Telelefon<br> {{$store.state.whatsapp}} </div> -->
         <router-link to="/">Acasă</router-link>
@@ -22,7 +22,7 @@
         <div class="footer-contact" @click="goToLink($store.state.fb)">
           <div class="footer-img-container">
             <img
-              :src="require('@/assets/img/facebook.svg')"
+              :src="require('./assets/img/facebook.svg')"
               alt="Facebook Icon"
             />
           </div>
@@ -31,7 +31,7 @@
         <div class="footer-contact" @click="openWapp($store.state.whatsapp)">
           <div class="footer-img-container">
             <img
-              :src="require('@/assets/img/whatsapp.svg')"
+              :src="require('./assets/img/whatsapp.svg')"
               alt="Whatsapp Icon"
             />
           </div>
@@ -40,7 +40,7 @@
         <div class="footer-contact">
           <div class="footer-img-container">
             <img
-              :src="require('@/assets/img/mail-message.svg')"
+              :src="require('./assets/img/mail-message.svg')"
               alt="Email Icon"
             />
           </div>

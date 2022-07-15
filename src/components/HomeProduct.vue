@@ -6,7 +6,7 @@
       :key="index"
     @click="$parent.$parent.goToLink(product.link)">
       <div class="product-image">
-        <img :src="require(`@/assets/img/${product.image}`)" />
+        <img :src="require(`../assets/img/${product.image}`)" />
       </div>
       <div class="product-content">
         {{product.name}}
