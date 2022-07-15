@@ -8,7 +8,7 @@
         <!-- <div class="phone-number">Telelefon<br> {{$store.state.whatsapp}} </div> -->
         <router-link to="/">Acasă</router-link>
         <router-link to="/despre">Despre noi</router-link>
-        <router-link to="/partereri">Parteneri</router-link>
+        <router-link to="/parteneri">Parteneri</router-link>
         <router-link to="/lucrari">Lucrari</router-link>
         <router-link to="/contact">Contact</router-link>
       </div>
