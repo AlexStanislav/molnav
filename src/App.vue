@@ -9,11 +9,11 @@
         <router-link to="/">Acasă</router-link>
         <router-link to="/despre">Despre noi</router-link>
         <router-link to="/parteneri">Parteneri</router-link>
-        <router-link to="/lucrari">Lucrari</router-link>
+        <router-link to="/lucrari" tag="span">Lucrari</router-link>
         <router-link to="/contact">Contact</router-link>
       </div>
     </div>
-    <main>
+    <main :class="mainClass">
       <router-view />
     </main>
     <footer>
@@ -62,8 +62,19 @@ export default {
       window.open(`https://wa.me/${number}`, "_blank");
     },
   },
+  data() {
+    return {
+      mainClass: ''
+    }
+  },
   mounted() {
-    console.log("isDev", this.$isDev);
+    let self = this;
+    window.EventBus.listen('aboutenter', function(){
+      self.mainClass = 'aboutMain'
+    })
+    window.EventBus.listen('resetmainclass', function(){
+      self.mainClass = ''
+    })
   },
 };
 </script>
@@ -73,6 +84,15 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.router-link-exact-active{
+  background: $mainColor;
+  color: white !important;
+}
+
+.inactiveRoute{
+  color: #aeaeae;
 }
 
 .logo-container {
@@ -109,7 +129,7 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  a {
+  a, span {
     color: $mainColor;
     padding: 0.5em 1em 0.2em 1em;
     text-decoration: none;
@@ -117,6 +137,11 @@ a:hover{
     margin: 0.5em;
     transition: all 0.3s ease-in-out;
     border-bottom: 1px solid $mainColor;
+  }
+  span{
+    color: #aeaeae;
+    border-bottom: 1px solid #aeaeae;
+    cursor: not-allowed;
   }
   a:hover {
     color: $mainLightShade;
@@ -139,6 +164,10 @@ main {
   height: calc(100vh - 140px);
   box-sizing: border-box;
   overflow-x: auto;
+}
+
+.aboutMain{
+  height: calc(100vh - 203px);
 }
 
 footer {

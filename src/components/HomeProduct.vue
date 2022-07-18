@@ -4,7 +4,7 @@
       class="product-wrapper"
       v-for="(product, index) of products"
       :key="index"
-    @click="$parent.$parent.goToLink(product.link)">
+    @click="$router.push('/contact')">
       <div class="product-image">
         <img :src="require(`../assets/img/${product.image}`)" />
       </div>

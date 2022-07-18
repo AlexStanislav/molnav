@@ -13,6 +13,10 @@ const routes = [
   {
     path: '/despre',
     name: 'Despre',
+    // beforeEnter: (to, from, next) => {
+    //   window.EventBus.dispatch('aboutenter')
+    //   next()
+    // },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -35,8 +39,28 @@ const routes = [
   },
 ]
 
+
 const router = new VueRouter({
   routes
 })
+
+
+router.beforeEach((to, from, next) => {
+  switch(to.path){
+    case '/despre':
+    case '/parteneri':
+    case '/contact':
+      window.EventBus.dispatch('aboutenter')
+      next()
+    break;
+    case '/lucrari':
+      next(from.path)
+    break
+    default:
+      window.EventBus.dispatch('resetmainclass')
+      next()
+  }
+})
+
 
 export default router
