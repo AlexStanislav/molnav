@@ -30,6 +30,8 @@ export default new Vuex.Store({
     whatsapp: '0745513497',
     fb: 'https://www.facebook.com/Molnav-Conprest-SRL-105820442195289',
     mail: 'molnav2022@gmail.com',
+    mail1: 'c.mitrusciak@molnavconprest.ro',
+    mail2: 'm.maioru@molnavconprest.ro',
     produse: {
       vk: [
         { name: "Țiglă Metalica Modulara", image: "VK-Tigla1.png", link: "https://vkp.ro/tigla-metalica-modulara/" },

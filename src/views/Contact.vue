@@ -38,6 +38,28 @@
             <a href="mailto:molnav2022@gmail.com">{{ $store.state.mail }}</a>
           </div>
         </div>
+        <div class="contact-wrapper">
+          <div class="footer-img-container">
+            <img
+              :src="require('../assets/img/mail-message-color.svg')"
+              alt="Email Icon"
+            />
+          </div>
+          <div class="contact-text">
+            <a href="mailto:c.mitrusciak@molnavconprest.ro">{{ $store.state.mail1 }}</a>
+          </div>
+        </div>
+        <div class="contact-wrapper">
+          <div class="footer-img-container">
+            <img
+              :src="require('../assets/img/mail-message-color.svg')"
+              alt="Email Icon"
+            />
+          </div>
+          <div class="contact-text">
+            <a href="mailto:m.maioru@molnavconprest.ro">{{ $store.state.mail2 }}</a>
+          </div>
+        </div>
       </div>
       <div class="right-container">
         <div class="container-title">
