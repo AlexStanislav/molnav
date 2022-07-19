@@ -78,4 +78,19 @@ export default {
     font-size: 1.3em;
   }
 }
+
+@media screen  and(max-width: 854px) and(orientation: landscape){
+  .product-content{
+    font-size: 1.1em;
+  }
+}
+
+@media screen and(max-width:414px) and(orientation: portrait){
+  .product-container{
+    width: 100%;
+  }
+  .product-content{
+    font-size: 1.1em;
+  }
+}
 </style>

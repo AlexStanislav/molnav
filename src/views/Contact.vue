@@ -15,7 +15,10 @@
           </div>
           <div class="contact-text">Molnav Conprest SRL</div>
         </div>
-        <div class="contact-wrapper" @click="$parent.openWapp($store.state.whatsapp)">
+        <div
+          class="contact-wrapper"
+          @click="$parent.openWapp($store.state.whatsapp)"
+        >
           <div class="footer-img-container">
             <img
               :src="require('../assets/img/whatsappColor.svg')"
@@ -37,8 +40,17 @@
         </div>
       </div>
       <div class="right-container">
-        <div class="container-title">Sau ne puteti vizita la locatia fizica</div>
-        <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJIVeh4IWqs0ARfcRj3ED5CbQ&key=AIzaSyDmuLaYtURsJMu4kz3jxtHgWiGhD_syA60"></iframe>
+        <div class="container-title">
+          Sau ne puteti vizita la locatia fizica
+        </div>
+        <iframe
+          width="600"
+          height="450"
+          style="border: 0"
+          loading="lazy"
+          allowfullscreen
+          src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJIVeh4IWqs0ARfcRj3ED5CbQ&key=AIzaSyDmuLaYtURsJMu4kz3jxtHgWiGhD_syA60"
+        ></iframe>
       </div>
     </div>
   </div>
@@ -56,47 +68,78 @@ export default {};
   border-bottom: 1px solid $mainDarkAccent;
 }
 
-
-.contact-container{
-    display: flex;
+.contact-container {
+  display: flex;
 }
 
-.contact-text{
+.contact-text {
+  color: $mainColor;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  a {
     color: $mainColor;
-    display: flex;
-    align-items: center;
-    margin-left: 0.5em;
-    font-weight: bold;
-    cursor: pointer;
-    a{
-        color: $mainColor;
-    }
+  }
 }
 
-.left-container{
-    display: flex;
+.left-container {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1em 2em;
+  margin-top: 4vh;
+}
+
+.right-container {
+  padding: 1em 2em;
+  margin-top: 4vh;
+  iframe {
+    border: 2px solid $mainColor !important;
+  }
+}
+
+.container-title {
+  color: $mainColor;
+  font-size: 1.5em;
+  margin-bottom: 3vh;
+  border-bottom: 1px solid $mainDarkAccent;
+}
+
+.contact-wrapper {
+  display: flex;
+  margin: 0.5vh 0;
+}
+
+@media screen and(max-width:414px) and(orientation: portrait) {
+
+  .contact-title{
+    font-size: 1.4em;
+  }
+
+  .contact-container {
     flex-flow: column wrap;
-    padding: 1em 2em;
-    margin-top: 4vh;
-}
+  }
 
-.right-container{
-    padding: 1em 2em;
-    margin-top: 4vh;
-    iframe{
-        border: 2px solid $mainColor !important;
+  .container-title{
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .right-container {
+    iframe {
+      width: 320px;
+      height: 320px;
     }
+  }
 }
 
-.container-title{
-    color: $mainColor;
-    font-size: 1.5em;
-    margin-bottom: 3vh;
-    border-bottom: 1px solid $mainDarkAccent;
-}
-
-.contact-wrapper{
-    display: flex;
-    margin: 0.5vh 0;
+@media screen and(max-width: 854px) and(orientation: landscape) {
+  .right-container {
+    iframe {
+      width: 400px;
+      height: 400px;
+    }
+  }
 }
 </style>

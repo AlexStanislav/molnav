@@ -3,7 +3,7 @@
         <div class="partners-title">Partenerii nostri</div>
         <div class="partners-content">
             <div class="partner-container">
-                <div class="partener-img">
+                <div class="partner-img">
                     <img :src="require('../assets/img/logo-viking.png')" alt="">
                 </div>
                 <div class="partner-text">
@@ -79,6 +79,26 @@ export default {
     text-align: center;
     color: $mainColor;
     font-weight: bold;
+}
+
+@media screen and(max-width:414px) and(orientation: portrait){
+    .partners-title{
+        width: 70%;
+        font-size: 1.3em;
+    }
+
+    .partner-img{
+        width: 200px;
+        height: 100px;
+    }
+
+    .partner-text{
+        font-size: 1em;
+    }
+    .partners-content{
+        margin-top: 1em;
+        margin-bottom: 4em;
+    }
 }
 
 </style>

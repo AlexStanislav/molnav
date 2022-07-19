@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div id="nav-container">
+      <div id="nav-container" v-if="isMobile == false">
         <div class="logo-container">
           <img :src="require('./assets/img/Molnav Logo 1.png')" />
         </div>
@@ -11,6 +11,28 @@
         <router-link to="/parteneri">Parteneri</router-link>
         <router-link to="/lucrari" tag="span">Lucrari</router-link>
         <router-link to="/contact">Contact</router-link>
+      </div>
+      <div class="mobile-nav-container" v-if="isMobile">
+        <div class="mobile-menu-icon" @click="toggleMobileMenu()">
+          <img :src="require('./assets/img/menu.svg')" />
+        </div>
+        <div class="mobile-logo-container">
+          <img :src="require('./assets/img/Molnav Logo 1.png')" />
+        </div>
+      </div>
+      <div
+        class="mobile-menu-container"
+        v-if="isMobile"
+        :style="{ left: `${menuPosition}vw` }"
+        @click="toggleMobileMenu()"
+      >
+        <div class="mobile-menu">
+          <router-link to="/">Acasă</router-link>
+          <router-link to="/despre">Despre noi</router-link>
+          <router-link to="/parteneri">Parteneri</router-link>
+          <router-link to="/lucrari" tag="span">Lucrari</router-link>
+          <router-link to="/contact">Contact</router-link>
+        </div>
       </div>
     </div>
     <main :class="mainClass">
@@ -61,20 +83,29 @@ export default {
     openWapp(number) {
       window.open(`https://wa.me/${number}`, "_blank");
     },
+    toggleMobileMenu() {
+      if (this.menuPosition == 0) {
+        this.menuPosition = -100;
+      } else {
+        this.menuPosition = 0;
+      }
+    },
   },
   data() {
     return {
-      mainClass: ''
-    }
+      mainClass: "",
+      isMobile: this.$store.state.isMobile,
+      menuPosition: -100,
+    };
   },
   mounted() {
     let self = this;
-    window.EventBus.listen('aboutenter', function(){
-      self.mainClass = 'aboutMain'
-    })
-    window.EventBus.listen('resetmainclass', function(){
-      self.mainClass = ''
-    })
+    window.EventBus.listen("aboutenter", function () {
+      self.mainClass = "aboutMain";
+    });
+    window.EventBus.listen("resetmainclass", function () {
+      self.mainClass = "";
+    });
   },
 };
 </script>
@@ -86,12 +117,12 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.router-link-exact-active{
+.router-link-exact-active {
   background: $mainColor;
   color: white !important;
 }
 
-.inactiveRoute{
+.inactiveRoute {
   color: #aeaeae;
 }
 
@@ -117,7 +148,7 @@ a {
   color: white;
 }
 
-a:hover{
+a:hover {
   border-bottom: 1px solid white;
 }
 
@@ -129,7 +160,8 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  a, span {
+  a,
+  span {
     color: $mainColor;
     padding: 0.5em 1em 0.2em 1em;
     text-decoration: none;
@@ -138,7 +170,7 @@ a:hover{
     transition: all 0.3s ease-in-out;
     border-bottom: 1px solid $mainColor;
   }
-  span{
+  span {
     color: #aeaeae;
     border-bottom: 1px solid #aeaeae;
     cursor: not-allowed;
@@ -166,7 +198,7 @@ main {
   overflow-x: auto;
 }
 
-.aboutMain{
+.aboutMain {
   height: calc(100vh - 203px);
 }
 
@@ -235,6 +267,159 @@ footer {
     width: 90%;
     margin: 0 0 0 10%;
     position: initial;
+  }
+}
+
+@media screen and(max-width: 855px) and(orientation: landscape) {
+  .logo-container {
+    width: 120px;
+    top: 1em;
+  }
+  
+  main {
+    margin-top: 5px;
+  }
+
+  .mobile-logo-container {
+    width: 80px;
+    position: absolute;
+    left: 45%;
+    top: 5px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .mobile-nav-container {
+    width: 100%;
+    height: 50px;
+    background: $mainLightShade;
+    position: relative;
+    z-index: 6;
+  }
+
+  .mobile-menu-icon {
+    width: 50px;
+    height: 50px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .mobile-menu-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: -100vw;
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .mobile-menu {
+    width: 50%;
+    height: 100%;
+    background: $mainColor;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding-top: 1em;
+    a,
+    span {
+      width: 70%;
+      text-align: center;
+      font-size: 1.5em;
+      margin: 0.2em;
+      background: $main-light;
+    }
+    span {
+      color: $mainColor;
+      background: #aeaeae;
+      cursor: not-allowed;
+    }
+  }
+
+  #nav-container a {
+    font-size: 1.2em;
+  }
+
+  #nav-container span {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and(max-width:414px) and(orientation: portrait) {
+  main {
+    margin-top: 5px;
+  }
+
+  .mobile-nav-container {
+    width: 100%;
+    height: 50px;
+    background: $mainLightShade;
+    position: relative;
+    z-index: 6;
+  }
+
+  .mobile-menu-icon {
+    width: 50px;
+    height: 50px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .mobile-logo-container {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 2px;
+    left: 45%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .mobile-menu-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: -100vw;
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .mobile-menu {
+    width: 50%;
+    height: 100%;
+    background: $mainColor;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding-top: 1em;
+    a,
+    span {
+      width: 70%;
+      text-align: center;
+      font-size: 1.5em;
+      margin: 0.2em;
+      background: $main-light;
+    }
+    span {
+      color: $mainColor;
+      background: #aeaeae;
+      cursor: not-allowed;
+    }
+  }
+  .footer-contact-container {
+    justify-content: center;
+  }
+
+  .footer-contact {
+    margin-top: 5px;
   }
 }
 </style>

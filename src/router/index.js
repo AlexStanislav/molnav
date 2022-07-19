@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import store from '../store/index'
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,7 @@ router.beforeEach((to, from, next) => {
     case '/despre':
     case '/parteneri':
     case '/contact':
+      if(store.state.isMobile == false)
       window.EventBus.dispatch('aboutenter')
       next()
     break;

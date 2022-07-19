@@ -115,4 +115,77 @@ export default {};
   font-weight: 300;
   color: $mainDarkShade;
 }
+
+
+@media screen  and(max-width: 854px) and(orientation: landscape){
+
+  .about{
+    margin-bottom: 5em;
+  }
+
+  .about-container{
+    margin-top: 1em;
+  }
+
+  .about-img-container{
+    width: 150px;
+  }
+
+  .about-title{
+    font-size: 1.3em;
+  }
+
+  .about-content{
+    font-size: 1.1em;
+  }
+
+  .about-small{
+    width: 90%;
+  }
+
+  .about-container{
+    margin-bottom: 1em;
+  }
+
+  .about-small-title{
+    font-size: 1.3em;
+  }
+}
+
+@media screen and(max-width:414px) and(orientation: portrait){
+  .about{
+    flex-flow: column;
+    margin-bottom: 2em;
+  }
+  .about-container{
+    width: 90%;
+    margin: 2vh auto 0vh auto;
+  }
+  .about-title{
+    font-size: 1.4em;
+  }
+
+  .about-content{
+    font-size: 1.1em;
+  }
+
+  .about-small{
+    margin: auto;
+  }
+
+  .about-small-title{
+    font-size: 1.2em;
+  }
+
+  .about-firm-container{
+    width: 65%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-img-container{
+    width: 120px;
+    height: fit-content;
+  }
+}
 </style>

@@ -9,15 +9,15 @@
     <div class="home-title">Descoperiți produsele partenerilor nostri</div>
     <div class="partner-products">
       <div class="product-container">
-        <div class="product-container-title">Produse <span @click="$parent.goToLink($store.state.partners[0])">Viking</span></div>
+        <div class="product-container-title">Produse Viking</div>
         <HomeProduct :products="$store.state.produse.vk" />
       </div>
       <div class="product-container">
-       <div class="product-container-title">Produse <span @click="$parent.goToLink($store.state.partners[1])">Blachotrapez</span></div>
+       <div class="product-container-title">Produse Blachotrapez</div>
        <HomeProduct :products="$store.state.produse.bl"/>
       </div>
       <div class="product-container">
-       <div class="product-container-title">Produse <span @click="$parent.goToLink($store.state.partners[2])">ARKADA</span></div>
+       <div class="product-container-title">Produse ARKADA</div>
        <HomeProduct :products="$store.state.produse.ak"/>
       </div>
     </div>
@@ -98,8 +98,28 @@ export default {
 
 
 
-@media screen  and(max-width: 1366px){
-  
+@media screen  and(max-width: 414px) and(orientation: portrait){
+  .home-contact{
+    width: 80%;
+    margin: auto;
+    font-size: 1.1em;
+    margin-top: 1em;
+  }
+
+  .home-title{
+    font-size: 1.4em;
+    text-align: center;
+  }
+
+  .partner-products{
+    width: 80%;
+    margin: auto;
+    flex-flow: column;
+  }
+
+  .product-container-title{
+    text-align: center;
+  }
 }
 
 </style>
