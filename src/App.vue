@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <main :class="mainClass">
+    <main :class="[mainClass, aboutClass]">
       <router-view />
     </main>
     <footer>
@@ -94,6 +94,7 @@ export default {
   data() {
     return {
       mainClass: "",
+      aboutClass: "",
       isMobile: this.$store.state.isMobile,
       menuPosition: -100,
     };
@@ -101,10 +102,15 @@ export default {
   mounted() {
     let self = this;
     window.EventBus.listen("aboutenter", function () {
-      self.mainClass = "aboutMain";
+      self.aboutClass = "aboutMain";
+    });
+    window.EventBus.listen("otherenter", function () {
+      self.mainClass = "otherMain";
+      self.aboutClass = "";
     });
     window.EventBus.listen("resetmainclass", function () {
       self.mainClass = "";
+      self.aboutClass = "";
     });
   },
 };
@@ -198,8 +204,13 @@ main {
   overflow-x: auto;
 }
 
-.aboutMain {
+.otherMain {
   height: calc(100vh - 203px);
+}
+
+.aboutMain {
+  margin-top: 5px;
+  height: 110vh;
 }
 
 footer {
@@ -268,6 +279,13 @@ footer {
     margin: 0 0 0 10%;
     position: initial;
   }
+
+  .aboutMain {
+    height: 170vh;
+  }
+  .otherMain {
+    height: 120vh;
+  }
 }
 
 @media screen and(max-width: 855px) and(orientation: landscape) {
@@ -275,7 +293,7 @@ footer {
     width: 120px;
     top: 1em;
   }
-  
+
   main {
     margin-top: 5px;
   }

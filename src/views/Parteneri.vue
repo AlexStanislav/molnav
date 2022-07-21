@@ -84,7 +84,7 @@ export default {
 @media screen and(max-width:414px) and(orientation: portrait){
     .partners-title{
         width: 70%;
-        font-size: 1.3em;
+        font-size: 1.4em;
     }
 
     .partner-img{
@@ -93,11 +93,11 @@ export default {
     }
 
     .partner-text{
-        font-size: 1em;
+        font-size: 1.2em;
     }
     .partners-content{
         margin-top: 1em;
-        margin-bottom: 4em;
+        margin-bottom: 5em;
     }
 }
 

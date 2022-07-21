@@ -49,10 +49,18 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   switch(to.path){
     case '/despre':
+      if(store.state.isMobile == false){
+        window.EventBus.dispatch('aboutenter')
+        next()
+      }
+      next()
+    break
     case '/parteneri':
     case '/contact':
-      if(store.state.isMobile == false)
-      window.EventBus.dispatch('aboutenter')
+      if(store.state.isMobile == false){
+        window.EventBus.dispatch('otherenter')
+        next()
+      }
       next()
     break;
     case '/lucrari':
