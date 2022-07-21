@@ -210,7 +210,7 @@ main {
 
 .aboutMain {
   margin-top: 5px;
-  height: 110vh;
+  height: 111vh;
 }
 
 footer {

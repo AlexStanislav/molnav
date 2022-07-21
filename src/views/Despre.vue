@@ -65,7 +65,8 @@
 <script>
 export default {
   mounted() {
-    if(this.store.state.isMobile == false){
+    if(this.$store.state.isMobile == false){
+      console.log('test');
       window.EventBus.dispatch('aboutenter')
     }
   },
