@@ -71,14 +71,20 @@
           style="border: 0"
           loading="lazy"
           allowfullscreen
-          src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJIVeh4IWqs0ARfcRj3ED5CbQ&key=AIzaSyDmuLaYtURsJMu4kz3jxtHgWiGhD_syA60"
+          :src="iSource"
         ></iframe>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      iSource: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJIVeh4IWqs0ARfcRj3ED5CbQ&key=${this.$store.state.API}`
+    }
+  },
+};
 </script>
 <style lang="scss">
 @import "@/assets/scss/imports";

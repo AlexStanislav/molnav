@@ -21,6 +21,8 @@ function detectMob() {
 
 export default new Vuex.Store({
   state: {
+    API_OLD: "AIzaSyDmuLaYtURsJMu4kz3jxtHgWiGhD_syA60",
+    API: "AIzaSyDfMy41d_OEcQLEtHlEDTjWQrbhUOwJ9jA",
     isMobile: detectMob(),
     partners: [
       "https://vkp.ro/",
