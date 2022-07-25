@@ -4,6 +4,14 @@
         <div class="partners-content">
             <div class="partner-container">
                 <div class="partner-img">
+                    <img :src="require('../assets/img/logo-wurth.png')" alt="">
+                </div>
+                <div class="partner-text">
+                   O companie romaneasca in domeniul elementelor de asamblare, sistemelor de ancorare, adezivilor, etansantilor si a cosmeticelor auto.
+                </div>
+            </div>
+            <div class="partner-container">
+                <div class="partner-img">
                     <img :src="require('../assets/img/logo-viking.png')" alt="">
                 </div>
                 <div class="partner-text">
@@ -53,6 +61,7 @@ export default {
 }
 
 .partner-container{
+    width: 50%;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -74,7 +83,7 @@ export default {
 }
 
 .partner-text{
-    width: 50%;
+    width: 80%;
     font-size: 1.3em;
     text-align: center;
     color: $mainColor;
@@ -98,6 +107,12 @@ export default {
     .partners-content{
         margin-top: 1em;
         margin-bottom: 5em;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .partner-container{
+        width: 90%;
     }
 }
 

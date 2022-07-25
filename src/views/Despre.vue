@@ -45,17 +45,22 @@
       <div class="about-firm-content">
         <div class="about-firm-container">
           <div class="about-img-container">
-            <img :src="require('../assets/img/logo-viking.png')" alt="" />
-          </div>
-        </div>
-        <div class="about-firm-container">
-          <div class="about-img-container bl-container">
-            <img :src="require('../assets/img/logo BL.svg')" alt="" />
+            <img :src="require('../assets/img/logo-wurth.png')" />
           </div>
         </div>
         <div class="about-firm-container">
           <div class="about-img-container">
-            <img :src="require('../assets/img/Arkada.png')" alt="" />
+            <img :src="require('../assets/img/logo-viking.png')" />
+          </div>
+        </div>
+        <div class="about-firm-container">
+          <div class="about-img-container bl-container">
+            <img :src="require('../assets/img/logo BL.svg')" />
+          </div>
+        </div>
+        <div class="about-firm-container">
+          <div class="about-img-container">
+            <img :src="require('../assets/img/Arkada.png')" />
           </div>
         </div>
       </div>
@@ -65,9 +70,9 @@
 <script>
 export default {
   mounted() {
-    if(this.$store.state.isMobile == false){
-      console.log('test');
-      window.EventBus.dispatch('aboutenter')
+    if (this.$store.state.isMobile == false) {
+      console.log("test");
+      window.EventBus.dispatch("aboutenter");
     }
   },
 };
@@ -181,7 +186,7 @@ export default {
 @media screen and(max-width:414px) and(orientation: portrait) {
   .about {
     flex-flow: column;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
   .about-container {
     width: 90%;
